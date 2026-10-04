@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My To-Do List</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ===============================
+             HEADER
+        ================================ -->
+
+        <header class="header">
+
+            <div class="logo">
+                <h2>✓ My Tasks</h2>
+                <p>Simple Task Manager</p>
+            </div>
+
+            <div class="status">
+                <span aria-hidden="true">●</span>
+                <p>Online</p>
+            </div>
+
+        </header>
+
+
+        <!-- ===============================
+             DASHBOARD
+        ================================ -->
+
+        <section class="dashboard" aria-label="Task Statistics">
+
+            <div class="card">
+                <p>Total Tasks</p>
+                <h2 id="totalTasks">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Pending</p>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Completed</p>
+                <h2 id="completedTasks">0</h2>
+            </div>
+
+            <div class="card">
+                <p>Progress</p>
+                <h2 id="progress">0%</h2>
+
+                <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ===============================
+             ADD TASK
+        ================================ -->
+
+        <section class="add-task">
+
+            <div class="task-input-row">
+
+                <label for="taskInput" class="sr-only" style="display: none;">Task Description</label>
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="What needs to be done?"
+                    autocomplete="off"
+                >
+
+                <button id="addTaskBtn" type="button">
+                    + Add Task
+                </button>
+
+            </div>
+
+
+            <div class="task-details">
+
+                <div>
+                    <label for="dueDate">Due Date</label>
+
+                    <input
+                        type="date"
+                        id="dueDate"
+                    >
+                </div>
+
+
+                <div>
+                    <label for="priority">Priority</label>
+
+                    <select id="priority">
+
+                        <option value="Medium">
+                            Medium Priority
+                        </option>
+
+                        <option value="High">
+                            High Priority
+                        </option>
+
+                        <option value="Low">
+                            Low Priority
+                        </option>
+
+                    </select>
+                </div>
+
+
+                <div>
+                    <label for="tag">
+                        Tag / Category
+                    </label>
+
+                    <input
+                        type="text"
+                        id="tag"
+                        placeholder="e.g. Work, Personal"
+                    >
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===============================
+             FILTERS
+        ================================ -->
+
+        <section class="filters">
+
+            <div class="filter-buttons" role="group" aria-label="Filter tasks status">
+
+                <button type="button" class="filter-btn active">
+                    All
+                </button>
+
+                <button type="button" class="filter-btn">
+                    Active
+                </button>
+
+                <button type="button" class="filter-btn">
+                    Completed
+                </button>
+
+            </div>
+
+
+            <div class="filter-options">
+
+                <label for="searchInput" class="sr-only" style="display: none;">Search tasks</label>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search tasks or tags..."
+                >
+
+                <label for="sortTasks" class="sr-only" style="display: none;">Sort tasks</label>
+                <select id="sortTasks">
+
+                    <option value="newest">
+                        Newest First
+                    </option>
+
+                    <option value="oldest">
+                        Oldest First
+                    </option>
+
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===============================
+             TASK LIST
+        ================================ -->
+
+        <section class="task-section">
+
+            <div class="task-section-header">
+
+                <h2>My Tasks</h2>
+
+                <span id="taskCount">
+                    0 tasks
+                </span>
+
+            </div>
+
+
+            <div id="taskList" aria-live="polite">
+
+                <div class="empty-state">
+
+                    <h3>No tasks yet</h3>
+
+                    <p>
+                        Add your first task to get started.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- JavaScript -->
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
